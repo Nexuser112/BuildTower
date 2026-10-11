@@ -1,0 +1,32 @@
+/* BuildTower Game — стили страницы. Сама игра рисуется на canvas (см. js/). */
+:root {
+  --bg: #dfe6f2;                          /* фон страницы вокруг игры (светлая тема) */
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);       /* отступы под «чёлку» и системные панели телефона */
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #0b1020; }  /* тёмная тема системы */
+}
+:root[data-theme="dark"] { --bg: #0b1020; }
+
+html {
+  height: 100%;
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  display: flex;                           /* центрируем холст */
+  justify-content: center;
+  align-items: center;
+  touch-action: manipulation;              /* без двойного тапа-зума */
+  user-select: none;
+  -webkit-user-select: none;
+  overflow: hidden;
+}
+
+canvas { display: block; }
